@@ -60,6 +60,12 @@ static const int
 		32768,32768,32768,32768,32768,32768,32768,32768,	// 8-21 are 32kB
 		32768,32768,32768,32768,32768,32768,
 		4096,4096,4096,4096,4096,4096,						// 22-27 are 4kB
+	},
+	sectorMapLpc43xx[]=
+	{
+		// LPC43xx non-uniform sector map
+		4096,4096,4096,4096,4096,4096,4096,4096,			// 0-7 are 4kB
+		65536,65536,65536,65536,65536,65536,65536,			// 8-14 are 64kB
 	};
 
 const partinfo_t
@@ -156,6 +162,10 @@ const partinfo_t
 		{	{0x1700fd25,	~0			},	"LPC2378",														28,			sectorMapLpc23xx,	32*1024,	1024,	0x40000200,	UUENCODE|VECT_REMAP	},
 		{	{0x1700ff35,	~0			},	"LPC2387",														28,			sectorMapLpc23xx,	64*1024,	1024,	0x40000200,	UUENCODE|VECT_REMAP	},
 		{	{0x1800ff35,	~0			},	"LPC2388",														28,			sectorMapLpc23xx,	64*1024,	1024,	0x40000200,	UUENCODE|VECT_REMAP	},
+		// the following are from UM10503, LPC43XX LPC43SXX User manual, Rev 2.1 -- 10 December 2015
+		//																									# of										block	block RAM
+		//		id			alt. ID			name															sectors							main ram	size	address
+		{	{0xA001CA30,	~0			},	"LPC4337",														15,			sectorMapLpc43xx,	32*1024,	1024,	0x10000000,	UUENCODE|VECT_REMAP },
 	},
 	partDefUnknown=
 	{
